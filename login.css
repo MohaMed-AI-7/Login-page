@@ -1,0 +1,344 @@
+body {
+    background-size: cover;
+    background-color: #ffffff;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    
+    background-image:
+    linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.2) 40%,
+            rgba(0, 0, 0, 0.95) 100%
+        ),
+        radial-gradient(
+            ellipse at center,
+            transparent 30%,
+            rgba(0, 0, 0, 0.8) 100%
+        ),
+    
+    
+
+    
+    
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 19px;
+    width: 100%;
+    min-height: 100vh;
+}
+    
+
+
+.div2 {
+    grid-column: span 3 / span 3;
+    grid-row: span 8 / span 8;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+}
+
+.logo{
+    width: 650px;
+}
+.welcome-text{
+    color: rgb(0, 0, 0);
+    font-size: 65px;
+    
+    text-align: center;
+    transform: translateX(-10px);
+    
+}
+.description-text{
+    
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-align: center;
+    width: 350px;
+    overflow-wrap: break-word;
+    transform: translateY(-60px);
+    text-align: left;
+}
+
+
+.div1 {
+    grid-column: span 3 / span 3;
+    grid-row: span 8 / span 8;
+    grid-column-start: 7;
+    grid-row-start: 2;
+    background-color: rgba(0, 0, 0, 0.851);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-evenly;
+    padding: 30px 0;        /* يمنع التلامس من فوق وتحت */
+    width: 100%;
+}
+
+.toggle-container {
+    position: relative;
+    display: flex;
+    background-size: cover;
+    background-color: #4a4a4a; /* اللون الرمادي للحاوية */
+    border-radius: 50px;       /* تجعل الحواف دائرية بالكامل (Pill Shape) */
+    padding: 5px;
+    width: 80%;               /* تجعل العرض مريب ومستجيب مع الحاوية */
+    max-width: 390px;         /* تمنع الحاوية من التمدد بشكل مبالغ فيه في الشاشات الكبيرة */
+    height: 50px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin-inline: auto;
+    overflow: hidden;         /* تم إضافة الفاصلة المنقوطة ناقصة ؛ */
+}
+.toggle-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  /* بنستخدم الـ CSS Variables اللي ه نتحكم فيها بالـ JS */
+    background: radial-gradient(circle 80px at var(--x, 50%) var(--y, 50%),
+        rgba(138, 138, 138, 0.25),
+      /* لون الإضاءة البرتقالي الدافئ */
+        transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.toggle-container:hover {
+    color: #ffffff;
+  /* النص ينور بالبرتقالي */
+    border-color: #9a9a9a;
+  /* الحواف تنور */
+}
+
+.toggle-container:hover::before {
+    opacity: 1;
+  /* الإضاءة تظهر */
+}
+
+/* الزر الأسود الداخلي المحدّد (Slider) */
+.toggle-slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: calc(50% - 5px);
+    height: calc(100% - 10px);
+    background-color: #000000;
+    border-radius: 50px;
+    border: 1px solid #666;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
+    
+}
+
+/* تنسيق النصوص/الأزرار */
+.toggle-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    cursor: pointer;
+    z-index: 1; /* عشان الكلام يظهر فوق الزر الأسود */
+    transition: color 0.3s ease;
+    
+    letter-spacing: 3px;
+}
+
+/* لون النص لما يكون مفعّل */
+.toggle-btn.active {
+    color: #ffffff;
+}
+.dev{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 6px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.851);
+    padding: 20px;
+    width: 65%;
+    color: #ffffff;
+    font-size: 33px;
+    margin: 0 auto; 
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.dev::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(circle 80px at var(--x, 50%) var(--y, 50%),
+        rgba(208, 208, 208, 0.25),
+        transparent 80%);
+    border-radius: 50px;
+}
+.dev:hover{
+    color: #ffffff;
+
+    border-color: #9a9a9a;
+}
+.dev:hover::before {
+    opacity: 1;
+
+}
+/* الحاوية الكلية لكل حقل مدخلات */
+/* الخانة الرئيسية */
+/* الخانة الرئيسية */
+.input-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* توزّع الـ Label والإنبوت على كامل ارتفاع الخانة */
+  background-color: #404040;
+  border-radius: 16px; /* زيادة التدوير لتتناسب مع الحجم الكبير */
+  padding: 16px 20px; /* بادينج مريح يمنع التزييف */
+  margin: 0 auto 20px auto; /* لتوسيط الخانة نفسها أفقياً */
+  width: 80%;
+  height: 100px;
+  
+  box-sizing: border-box;
+}
+#input-email{
+    
+}
+
+/* العنوان (Email Address / Password) - بقى أكبر ومريح للعين */
+.input-field label {
+  color: #a1a1aa;
+  font-size: 22px; /* كبرنا الخط */
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* الحاوية الداخلية للأيقونة والإنبوت */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+/* النص اللي بيتكتب جوه الانبوت */
+.input-wrapper input {
+  width: 100%; /* تمديد الحقل للـ 100% ليملأ الحاوية بالكامل */
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 500;
+  padding-left: 36px; /* مسافة للأيقونة الشمال */
+  padding-right: 10px; /* تقليل المسافة اليمين ليمتد النص لنهاية الخانة */
+  box-sizing: border-box;
+  
+}
+
+/* الأيقونة الشمال (رسالة / قفل) */
+.input-wrapper .input-icon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  pointer-events: none;
+}
+/* الحاوية باستخدام CSS Grid */
+.remember-forget {
+  display: grid;
+  grid-template-columns: 1fr auto; /* المربع والنص يميناً ولينك الباسورد شمالاً */
+  align-items: center;
+  width: 80%;
+  max-width: 390px;
+  margin: 16px auto;
+}
+
+/* تنسيق الـ Custom Checkbox */
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* إخفاء الـ Checkbox الأصلي للمتصفح */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* شكل المربع الرمادي المخصص (تطابق مع الصورة) */
+.checkmark {
+  height: 18px;
+  width: 18px;
+  background-color: #333333;
+  border: 1.5px solid #555555;
+  border-radius: 4px;
+  margin-right: 8px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* لون المربع عند التحديد */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #555555;
+  border-color: #777777;
+}
+
+/* نص Remember me */
+.label-text {
+  color: #a1a1aa;
+  font-size: 14px;
+}
+
+/* نص Forget Password */
+.forget-link {
+  color: #a1a1aa;
+  font-size: 14px;
+  text-decoration: none;
+  justify-self: end; /* محاذاة أقصى اليمين */
+}
+
+.forget-link:hover {
+  color: #ffffff;
+}
+
+.logo-white{
+    width: 250px;
+    
+    margin: 0 auto;
+    display: block;
+}
