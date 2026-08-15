@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+<body>
+    <div class="parent">
+        <div class="div1">
+            <div class="toggle-container">
+                <!-- الطبقة المتحركة خلف الأزرار -->
+                <div class="toggle-slider"></div>
+
+                <!-- الأزرار -->
+                <button class="toggle-btn active" onclick="switchTab(this, 'login')">Login</button>
+                <button class="toggle-btn" onclick="switchTab(this, 'register')">Register</button>
+            </div>
+            <div class="div-logo-white">
+                <img src="./img/Gemini_Generated_Image_jregpmjregpmjreg-removebg-preview.png" class="logo-white">
+            </div>
+            
+            <div class="input-field" id="input-email">
+                <label for="email">Email Address</label>
+                <div class="input-wrapper">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <input type="email" id="email" placeholder="user@gmail.com" />
+                </div>
+            </div>
+
+            <div class="input-field">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <input type="password" id="password" placeholder="Enter your password" />
+                </div>
+            </div>
+            
+            <div class="remember-forget">
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="remember">
+                    <span class="checkmark"></span>
+                    <span class="label-text">Remember me</span>
+                </label>
+                <a href="#" class="forget-link">Forget Password?</a>
+            </div>
+            <div class="dev">
+                Login
+            </div>
+            
+            
+
+
+        </div>
+        <div class="div2">
+            <img src="./img/download.png" alt="Logo" class="logo">
+            <h1 class="welcome-text">
+                Welcome to Goat Store.
+            </h1>
+            <p class="description-text">
+                Design to give you the best experience whith top-quality brands.
+            </p>
+            
+
+        </div>
+    </div>
+    <script src="CSS/login.js"></script>
+</body>
+</html>
